@@ -14,7 +14,6 @@ h1,h2,h3,h4,h5,h6 {
   color: #A4A400;
   background-color: #F0F0F0;
   font-family: "Lucida Sans Unicode", Helvetica, Arial, sans-serif;
-  align-content: left;
   font-size: 18pt;
   text-decoration: underline;
   letter-spacing: 0.25em;
@@ -26,7 +25,7 @@ ul li{
 
 h1 {
     font-size: 22pt;
-    font-style: bold;
+    font-weight: bold;
     align-content: center;
 }
 .ingredients {
