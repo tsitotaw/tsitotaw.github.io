@@ -13,6 +13,18 @@ body {
     align-self: center;
     
 }
+.content ul {
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.content ul li{
+    list-style: none;
+    margin: 10px;
+    align-self: center;
+}
+
 nav ul{
     display: flex;
     justify-content: space-around;
@@ -39,10 +51,10 @@ nav ul li a:hover{
     height: 150px;
     border-radius: 75px;
     margin-top: 20px;
-    margin-left: 10px;
 }
 .content {
     height: 65%;
+    margin-left: 200px;
 }
 .footer {
     height: 10%;
@@ -53,4 +65,9 @@ nav ul li a:hover{
 
 .footer-right {
     align-self: flex-end;
+}
+
+.footer-left p {
+    padding: 0px;
+    line-height: 6px;
 }
