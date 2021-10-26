@@ -21,3 +21,37 @@ li {
     color: white;
     font-weight: bold;
 }
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+p {
+    color: white;
+}
+p:first-letter {
+    font-size: 150%;
+}
+.xtics, dt{
+    color: yellow;
+}
+.genre {
+    background-color: black;
+    border: 2px white solid;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.genre:hover {
+    text-transform: uppercase;
+}
+
+ol { 
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+li {
+    flex: 0 0 auto;
+}
