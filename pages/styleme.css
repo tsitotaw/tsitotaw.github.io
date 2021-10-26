@@ -13,6 +13,16 @@ h3 {
     font-size: 30px;
 }
 
+.myclasses, .myfavorites, .mymoods, .myfunfacts{   
+    display: flex;
+}
+.title{
+    flex: 1
+}
+.desc{
+    flex: 3;
+}
+
 li {
     color: white;
     font-size: large;
@@ -20,6 +30,18 @@ li {
 .mood {
     color: white;
     font-weight: bold;
+    
+
+}
+
+.mood-img {
+    display: flex;
+    flex-direction: row;    
+}
+.mood-img img{
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
 }
 a {
     text-decoration: none;
@@ -45,6 +67,10 @@ p:first-letter {
 
 .genre:hover {
     text-transform: uppercase;
+}
+
+.footer-right{
+    float: right;
 }
 
 ol { 
