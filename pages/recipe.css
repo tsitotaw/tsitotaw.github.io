@@ -39,6 +39,13 @@ h1 {
     background-color:#FFFFA8 ;
     font-style: italic;
 }
+
+.comment-indent {
+    display: block;
+}
+.username{
+    margin-top: 10px;
+}
 .footer {
     height: 10%;
     background-color: rgb(236, 244, 247);
@@ -49,7 +56,12 @@ h1 {
     padding: 0px;
     line-height: 6px;
     text-align: right;
+    font-family: monospace;
 }
 .abbrev{
     text-decoration: underline;
+    border-bottom: 1px dotted #000;
+}
+.removed-text{
+    text-decoration: line-through;
 }
