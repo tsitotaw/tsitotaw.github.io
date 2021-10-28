@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('./../images/movie/background.png');
+    background-repeat: repeat;
+    background-color: tan;
+    font-size: 8pt;
+    font-family: Verdana, Tahoma, sans-serif;
+    width: 100%;
+}
+
+h1 {
+    font-size: 24pt;
+    font-weight: bold;
+    text-shadow: 3px 3px;
+    color: #999999;
+    text-align: center;
+}
+.header{
+    background-image: url('./../images/movie/bannerbg.png');
+    background-repeat: repeat-x;
+}
+.left-header{
+    background-image: url('./../images/movie/rbg.png');
+    background-repeat: repeat-x;
+    height: 83px;  
+    border-top-left-radius: 20px;
+}
+.content{
+    width: 800px;    
+    margin: 0 auto;
+}
+.flexparent{
+    display: flex; /* this was needed to bring the validator links appear next to the body*/
+}
+.footer{
+    align-self:flex-end;
+}
+.content-body {
+    width: 100%;
+    border: 4px solid gray;
+    padding: 0px;
+    border-radius: 20px;    
+    box-sizing: border-box;
+}
+.leftside{
+    width: 550px;
+}
+.critics{
+    column-count: 2;
+    column-width: 47%;
+    column-gap: 2%;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.rightside{
+    width: 250px;
+    float: right;
+    background-color: #A2B964;
+    border-top-right-radius: 20px;
+}
+.rightside dl {
+    padding-left: 10pt;
+    font-size: 8pt;
+    font-style: Arial, sans-serif;
+}
+dt {
+    margin-top: 10pt;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0; /* this removes the indentation */
+}
+.clear {
+    clear: both;
+}
+.critic-right{
+    float: right;
+    width: 47%;
+}
+.critic-left{
+    float: left;
+    width: 47%;
+    margin-right: 2%;
+}
+
+.content-header-image{
+    width: 100%;
+    height: 52px;
+}
+#imgRottenBig{
+    vertical-align: top;
+    padding-left: 20px; /* did this trick to make the border radius of the background image works*/
+}
+.ratingPercent33{
+    color: red;
+    font-size: 48pt;
+    font-weight: bold;
+}
+p.critic-desc{
+    border: 2px solid gray;
+    font-weight: bold;
+    font-size: 8pt;
+    background-color: #E8DC9B;
+    border-radius: 10px;
+    padding: 8px;
+    height:auto;
+    display: inline-block; /*this will fix the issue with icon and text integrattion   */
+}
+p.critic-desc img{
+    margin-right: 5px;
+    float: left;
+}
+p.critic-profile{
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+p.critic-profile img{
+    float: left;
+    margin-right: 5px;
+}
+.pagination{
+    text-align: center;
+    background-color:#A2B964;
+    padding: 2px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+#imgOverview{
+    border-top-right-radius: 12px;
+}
