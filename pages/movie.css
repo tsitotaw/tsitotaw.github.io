@@ -16,16 +16,19 @@ h1 {
     color: #999999;
     text-align: center;
 }
+
 .header{
     background-image: url('./../images/movie/bannerbg.png');
     background-repeat: repeat-x;
 }
+
 .left-header{
     background-image: url('./../images/movie/rbg.png');
     background-repeat: repeat-x;
     height: 83px;  
     border-top-left-radius: 20px;
 }
+
 .content{
     width: 800px;    
     margin: 0 auto;
@@ -73,7 +76,7 @@ ul {
     padding-left: 0; /* this removes the indentation */
 }
 .clear {
-    clear: both;
+    clear: both; /* this will help fix some floating issues when using float layout style*/
 }
 .critic-right{
     float: right;
@@ -129,4 +132,7 @@ p.critic-profile img{
 }
 #imgOverview{
     border-top-right-radius: 12px;
+}
+img {
+    opacity: 0.5;
 }

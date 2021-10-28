@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="grades.css" type="text/css"> 
+    <title>Retrieve Grade</title>
+</head>
+
+<body>
+    <h1></h1>
+    <fieldset id="gradeCenter">
+        <legend>Retrieve your grade</legend>
+    <form action="http://mumstudents.org/params.php">
+
+        <div class="row">
+            <label for="" class="col1">Student Name </label>
+            <input type="text" class="col2" name="name">
+        </div>
+
+        <div class="row">
+            <label for="" class="col1">Student Id </label>
+            <input type="text" class="col2" name="id">
+        </div>
+
+        <div class="row">
+            <label for="" class="col1"> Assignment </label>
+            <select name="assignment" id="assignment" class="col2">
+                <option value="01">Assignment 1</option>
+                <option value="02" selected>Assignment 2</option>
+                <option value="03">Assignment 3</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label for="" class="col1"> Entry </label>
+            <div class="check">
+            <label for="entry1" ><input type="radio" name="entry" id="entry1" value="Fall"> Fall 2021 </label>
+            <label for="entry2" ><input type="radio" name="entry" id="entry2" value="Winter"> Winter 2021 </label>
+            <label for="entry3" ><input type="radio" name="entry" id="entry3" value="Summer"> Summer 2021 </label>
+        </div>
+        </div>
+
+        <div class="row">
+            <div class="check">
+            <input type="checkbox" class="col" name="confirm" id="confirm">
+            <label for="confirm">  I confirm that the detail above are only mine </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Get Grade" class="col2">
+        </div>
+
+    </form>
+
+</fieldset>
+</body>
+
+</html>

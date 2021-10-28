@@ -1,0 +1,19 @@
+.signup {
+    background-color: lightsteelblue;
+    width: 550px;
+    line-height: 35px;
+}
+.lblElement {
+    display: inline-block;
+    width: 190px;
+    /* margin-right: 50px; */
+}
+
+input[type="submit"]{
+    background-color:lightpink;
+    font-weight: bolder;
+}
+
+label a{
+    color: palevioletred
+}
