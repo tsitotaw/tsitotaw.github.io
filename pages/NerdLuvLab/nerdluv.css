@@ -105,3 +105,14 @@ footer {
 	font-size: x-small;
 	clear: both;
 }
+
+.row {
+	width: 100%;
+}
+.lblElement{
+	width: 40%;
+}
+.left{
+	width: 60%;
+	float: right;
+}
