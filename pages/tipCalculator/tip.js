@@ -7,6 +7,8 @@ let tipCalculator = (function(){
     function toggleVisibility(visibility){
         document.getElementById("invalidTip").style.visibility = visibility;
         document.getElementById("total").innerHTML="";
+
+        console.log(history);
     }
 
     let calculateTip = function(){
