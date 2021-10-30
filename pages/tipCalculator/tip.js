@@ -20,9 +20,10 @@ let tipCalculator = (function(){
             toggleVisibility("visible");
             return false;
         }
-
         let tipAmount = parseFloat(total)*parseFloat(percentage)/100;
-        document.getElementById("total").innerHTML = tipAmount;
+        let totalAmount = total + tipAmount;
+        document.getElementById("total").innerHTML = total;        
+        document.getElementById("tipAmount").innerHTML = tipAmount;
     };
 
 
