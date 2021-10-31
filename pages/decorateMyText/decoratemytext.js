@@ -1,18 +1,24 @@
 window.onload = addEvents;
 
-
+let interval;
 
 function addEvents() {
     const btnBigger = document.getElementById("btnBigger");
+    const btnStop = document.getElementById("btnStop");
     const chkBling = document.getElementById("chkBling");
     const txtInput = document.getElementById("txtInput");
 
     btnBigger.onclick = updateTextStyle;
+    btnStop.onclick = stopAnimation;
     chkBling.onchange = popAlert;
+
 }
 
 function updateTextStyle() {
-    setInterval(updateSize, 500);
+    interval = setInterval(updateSize, 500);
+}
+function stopAnimation() {
+    clearInterval(interval);
 }
 
 function updateSize(){
