@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Exercise</title>
+    <link rel="stylesheet" href="timer.css" type="text/css">
+</head>
+<body>
+    <ol>
+        <li>
+            What is the difference between the following 2 statements?
+            <ul>
+                <li>setTimeout(booyah, 2000);</li>
+                <li>setTimeout(booyah(), 2000);</li>
+                
+            </ul>
+            <p class="answer">
+                the difference is the first booyah with the parentesis will wait until the wait time is over, which is 2000 in this cases
+                whereas, the second booyah function will be called immmediately without waiting the timer
+            </p>
+        </li>
+        <li>What do the following 2 alerts display (answer without running the code)?
+            <p>
+                var myfunc = function(a, x) { <br/>
+                   &nbsp;&nbsp;&nbsp;&nbsp; return a * x;<br/>
+                   };<br/>
+                   var x = myfunc(2, 3);<br/>
+                   var y = myfunc;<br/>
+                   alert(x);<br/>
+                   alert(y(2,3));
+            </p>
+            <p class="answer">
+                Both will alert to the same value 6. As functions are first class citizens, just like variable assignment, function assignments are possible - 
+                the only difference of the two alert calls is one accepts a variable, the other a function - but the result is the same
+            </p>
+        </li>
+        <li>
+            Write functions booyah1 and booyah2 so that in both cases below, an alert box comes up after 2 seconds that
+            says “BOOYAH!”
+            <ul>
+                <li>setTimeout(booyah1, 2000);</li>
+                <li>setTimeout(booyah2(), 2000);</li>
+                
+            </ul>
+            <p class="answer">
+                function booyah1(){ <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    alert("“BOOYAH!"); <br/>
+                }<br/>
+
+                function booyah2(){ <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    setTimeout(booyah1, 2000); <br/>
+                }<br/>
+            </p>
+        </li>
+        <li>What is "Unobtrusive Javascript"? What is the practical application of Unobtrusive Javascript (and the reasons
+            for using it)?
+            <p class="answer">
+                        Unobtrusive Javascript is kind of a design philosophy and opinioin, 
+                        which guide us to separate our HTML structure and JS behaviors - doing that will help us implement separation of concerns 
+                        and keep our codes clean. 
+
+                        by removing the embedded script logic and the event handlers from HTML, we made sure our HTML page will work
+                        regardless of any external dependency - in case browsers donot support JS, or JS is disabled, 
+                        or make the site's content accessible for visually impaired or search engines or any other reason, 
+                        our app will work in its basic form. 
+
+                        But then, if everything is in place, we can add the additional behavior using our JS, when allowed,
+                        which inturn will use the global document object to put its magic.
+
+                        Also, by moving JS out, we can help developers only focus on specific technology and also easily introduce caching, minifing, uglifing, concatinating 
+                        and all other techniques and boost the performance of our app
+                    </p>
+        </li>
+    </ol>
+</body>
+</html>

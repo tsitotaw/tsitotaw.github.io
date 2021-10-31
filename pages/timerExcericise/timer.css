@@ -1,0 +1,8 @@
+.answer{
+    border: 1px solid darkgreen;
+    margin-left: 20px;
+    list-style: none;
+    background-color: darkgrey;
+    color: rebeccapurple;
+    font-size: larger;
+}
