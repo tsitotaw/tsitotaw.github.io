@@ -30,3 +30,16 @@ textarea {
 #lblInput{
 	display: block;
 }
+
+button {
+	width: 150px;
+	height: 30px;
+	background-color: green;
+	color: yellow;
+	font-weight: bold;
+}
+
+#btnStop{
+	background-color: red;
+	color: midnightblue;
+}
