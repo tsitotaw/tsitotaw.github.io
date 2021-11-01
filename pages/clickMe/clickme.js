@@ -1,6 +1,6 @@
 let myClickMe = (function(){
     let click = function(){
-        alert("You Clicked Me!");
+        alert("You Clicked Me!" + Infinity);
     }
 
     return {

@@ -2,6 +2,7 @@
 
 document.getElementById('fontOps').onchange = changeFontSize;
 document.getElementById('animation').onchange = prepareAnimationArray;
+
 document.getElementById('start').onclick = startAnimation;
 document.getElementById('stop').onclick = stopAnimation;
 document.getElementById('turbo').onclick = speedUpAnimation;
@@ -9,8 +10,10 @@ document.getElementById('turbo').onclick = speedUpAnimation;
 let animationArray = [];
 let animationIntervalID;
 let speed = 250;
+let currentState = false;
 
-toggleButtons("initial"); 
+disableStartButton();
+disableStopButton();
 
 function changeFontSize() {
     const size = this.value;
@@ -18,22 +21,53 @@ function changeFontSize() {
     textArea.style.fontSize = parseInt(size) + 'pt';
 }
 
+/**
+ * when a new animation is called, we would like to prepare few things
+ * get the animationArray populated with the right value
+ * we use split to get the actual animations on a specific type 
+ * 
+ */
 function prepareAnimationArray() {
     const target = this.value;
     const textArea = document.getElementById("text");
     if(target !== "Blank"){
         animationArray = Animation[target].split("=====\n");
-        toggleButtons('stop'); 
+        if(!currentState){
+            enableStartButton();
+            disableStopButton();
+        }
+        else {
+            disableStartButton();
+            enableStopButton();
+        }
+         
     }else{
-        toggleButtons("initial");
+        disableStartButton();
+        disableStopButton();
     }
 
 }
 
+function enableStartButton(){
+    document.getElementById("start").disabled = false;
+}
+function disableStartButton(){
+    document.getElementById("start").disabled = true;
+}
+function enableStopButton(){
+    document.getElementById("stop").disabled = false;
+}
+function disableStopButton(){
+    document.getElementById("stop").disabled = true;
+}
+
 function startAnimation() {
-    toggleButtons('start');
+    disableStartButton();
+    enableStopButton();
+
+    currentState = true;
     const textArea = document.getElementById("text");
-    let i =0;
+    let i = 0;
     animationIntervalID = setInterval(function () {
         if (i < animationArray.length){
             textArea.textContent = animationArray[i];
@@ -46,7 +80,9 @@ function startAnimation() {
 }
 
 function stopAnimation() {
-    toggleButtons('stop');
+    disableStopButton();
+    enableStartButton();
+    currentState = false;
     clearInterval(animationIntervalID);
 }
 
@@ -56,13 +92,3 @@ function speedUpAnimation(){
     speed = (this.checked === true) ? 50 : 250;
     startAnimation();
 }
-
-function toggleButtons(clickedButton) {
-    const stop = document.getElementById("stop");
-    const start = document.getElementById("start");
-   
-    stop.disabled = (clickedButton === 'start') ? false : (clickedButton == 'stop') ? true : true;
-    start.disabled = (clickedButton === 'start') ? true : (clickedButton == 'stop') ? false : true;
-    
-}
-
