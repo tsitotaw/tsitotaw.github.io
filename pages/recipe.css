@@ -24,6 +24,10 @@ h1,h2,h3,h4,h5,h6 {
 ul li{
     list-style-image: url("./../images/pie_icon.gif");
 }
+#commentListId{
+    list-style-image: none;
+    list-style: none;
+}
 
 h1 {
     font-size: 22pt;
