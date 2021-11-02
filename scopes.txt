@@ -1,0 +1,146 @@
+1. Determine what this Javascript code will print out (without running it):
+			x = 1;
+			var a = 5;
+			var b = 10;
+			var c = function (a, b, c) {
+				var x = 10;
+				document.write(x); // 10 (the outer variable is hidden as we have created a new variable here)
+				document.write(a); // 8 (a is also a new variable)
+				var f = function (a, b, c) {
+					b = a; // here b will be 8
+					document.write(b); // 8
+					b = c; // here b will be 10
+					var x = 5;
+				}
+				f(a, b, c); //Here a = 8, b = 9, and c = 10
+				document.write(b); // 9 => this is because the internal function didn't alter the outer b as it has its own local variable
+			}
+			c(8, 9, 10);
+			document.write(b); // 10
+			document.write(x); // 1
+			
+			// the response will be 
+							10
+							8
+							8
+							9
+							10
+							1
+
+2. What is the difference between a method and function?
+	A function can be called directly by its name.	A method consists of a code that can be called by the name of its object and its method name using dot notation or square bracket notation..
+	A function can pass the data that is operated and may return the data. 	The method operates the data contained in a Class.
+	Data passed to a function is explicit.	A method implicitly passes the object on which it was called.
+	A function lives on its own.	A method is a function associated with an object property.
+	
+	
+3. What does 'this' refer to when used in a Java method?
+	'this' in Java is a reference variable that refers to the current object of a method or a constructor.
+		
+		
+4. What does 'this' refer to when used in a JavaScript method?
+	The JavaScript 'this'  refers to the object it belongs to. In a method, this refers to the owner object.
+	
+5. What does 'this' refer to when used in a JavaScript constructor function?
+	When a function is used as a constructor (with the new keyword), its "this" is bound to the new object being constructed
+	
+	It has different values depending on where it is used:
+		
+		Alone, this refers to the global object.
+		In a function, this refers to the global object.
+		In a function, in strict mode, this is undefined.
+		In an event, this refers to the element that received the event.
+		
+
+6. Assume object x is the prototype for object y in Javascript. Object x has a method f( ) containing keyword 'this'.
+When f is called by x.f( ), what does 'this' refer to?
+	It depends on who called the function f. If y calls the function, this will refer to the object y; where as, if object x calls function f(), this will refer the calling object x  
+
+
+7. What is a free variable in JavaScript?
+	free variable refers to variables used in a function that are not local variables nor parameters of that function
+	
+8. Create an object that has properties with name = "fred" and major="music" and a property that is a function
+that takes 2 numbers and returns the smallest of the two, or the square of the two if they are equal.
+	var myObject = {
+    name: "fred",
+    major: "music",
+    numberValue: function(a, b){
+        if(a===b){
+            return a*a;
+        }
+        else if(a < b){
+            return a;
+        }
+        else {
+            return b;
+        }
+    }
+};
+
+9. Write Javascript code for creating three Employee objects using the "new" keyword and a constructor function.
+	Employee objects have the following fields: name, salary, position.
+	
+	var name, salary, position;
+
+	function Employee(name, salary, position){
+		this.name = name;
+		this.salary = salary;
+		this.position = position;
+	}
+
+	var alex = new Employee("Alex", 5200, "Professor");
+	var anna = new Employee("Anna", 3200, "TA");
+	var dina = new Employee("Dina", 8200, "Manager");
+
+	
+	
+10. Write a Javascript function that takes any number of input arguments and returns the product of the
+arguments.
+	function returnProduct(){
+		var result = 1;
+		for(var i=0; i< arguments.length; i++)
+		{
+			result *= arguments[i];
+		}
+
+    	return result;
+	}
+	
+11. Write an arrow function that returns the maximum of its three input arguments.
+	var max = (a,b,c) => {
+		var max = a;
+		if(b > max) max = b;
+		if(c > max) max = c;
+
+		return max;
+	};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
