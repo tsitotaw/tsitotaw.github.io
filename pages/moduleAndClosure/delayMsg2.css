@@ -1,0 +1,13 @@
+.click-me{
+    margin: 0 auto;
+    width: 200px;
+    margin-top: 200px;
+}
+
+button {
+    width: 250px;
+    height: 60px;
+    font-weight: bolder;
+    font-size: xx-large;
+    color: darkblue;
+}
