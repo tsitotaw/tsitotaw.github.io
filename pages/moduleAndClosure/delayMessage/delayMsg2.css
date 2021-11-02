@@ -11,3 +11,11 @@ button {
     font-size: xx-large;
     color: darkblue;
 }
+
+embed {
+    width: 700px;
+    height: 400px;
+}
+.horizontal{
+    width: 800px;
+}
