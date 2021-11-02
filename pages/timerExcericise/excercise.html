@@ -47,12 +47,12 @@
             <p class="answer">
                 function booyah1(){ <br>
                     &nbsp;&nbsp;&nbsp;&nbsp; 
-                    alert("“BOOYAH!"); <br/>
+                    alert("BOOYAH!"); <br/>
                 }<br/>
 
                 function booyah2(){ <br>
                     &nbsp;&nbsp;&nbsp;&nbsp; 
-                    setTimeout(booyah1, 2000); <br/>
+                    return function() {alert("BOOYAH!")}; <br/>
                 }<br/>
             </p>
         </li>
