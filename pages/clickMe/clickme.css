@@ -12,3 +12,15 @@ button {
     font-size: xx-large;
     color: darkblue;
 }
+
+#bid {
+    color: yellow;
+}
+#bid::after {
+   content: "ssdfjsdhs";
+}
+
+
+.btn {
+    color: black;
+}

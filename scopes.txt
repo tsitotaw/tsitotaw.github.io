@@ -81,8 +81,6 @@ that takes 2 numbers and returns the smallest of the two, or the square of the t
 9. Write Javascript code for creating three Employee objects using the "new" keyword and a constructor function.
 	Employee objects have the following fields: name, salary, position.
 	
-	var name, salary, position;
-
 	function Employee(name, salary, position){
 		this.name = name;
 		this.salary = salary;
