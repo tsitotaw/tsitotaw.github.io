@@ -101,23 +101,20 @@ add5( ); add5( ); add5( ); // final counter value is 15
 add7 = make_adder(7);
 add7( ); add7( ); add7( ); // final counter value is 21
 
-var addWithIncrement = (function () {    
-    return {
-        make_adder: function(inc){
-            var counter = 0;
-            return function(){
-                return counter +=inc;
-            }
+var make_adder = (function () {    
+        counter = 0;
+        return function(){
+            return counter +=inc;
         }
     }
 })();
 
-var add5 = addWithIncrement.make_adder(5);
+var add5 = make_adder(5);
 console.log(add5()); 
 console.log(add5()); 
 console.log(add5()); 
 
-var add7 = addWithIncrement.make_adder(7);
+var add7 = make_adder(7);
 console.log(add7()); 
 console.log(add7()); 
 console.log(add7()); 

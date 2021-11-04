@@ -43,3 +43,7 @@ button{
     float: right;
     vertical-align: middle;
 }
+
+h1.ss{
+    text-align: center;
+}
