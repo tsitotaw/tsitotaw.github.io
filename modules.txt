@@ -101,13 +101,12 @@ add5( ); add5( ); add5( ); // final counter value is 15
 add7 = make_adder(7);
 add7( ); add7( ); add7( ); // final counter value is 21
 
-var make_adder = (function () {    
+var make_adder = function (inc) {    
         counter = 0;
         return function(){
             return counter +=inc;
         }
-    }
-})();
+    };
 
 var add5 = make_adder(5);
 console.log(add5()); 
@@ -145,7 +144,9 @@ Public Method: increaseSalary(percentage) // uses private getSalary( )
 Public Method: incrementAge( ) // uses private getAge( )
 
 var employee =(function(){
-    var age, salary, name;
+
+    var age=0, salary=0, name="";
+    
     let getAge = function(){
         return age;
     }; 
@@ -161,19 +162,19 @@ var employee =(function(){
     };
 
     let setSalary = function(newSalary){
-        this.salary = newSalary;
+        salary = newSalary;
     };
 
     let setName = function(newName){
-        this.name = newName;
+        name = newName;
     };
 
     let increaseSalary = function(percentage){
-        setSalary(this.getSalary() + (this.getSalary() * percentage)/100);
+        setSalary(getSalary() + (getSalary() * percentage)/100);
     };
 
     let incrementAge = function(age){
-        setAge(this.getAge() + age);
+        setAge(getAge() + age);
     };
 
     return {
@@ -190,31 +191,31 @@ var employee =(function(){
 var employee =(function(){
     
     let getAge = function(){
-        return this.age;
+        return age;
     }; 
     let getSalary = function(){
-        return this.salary;
+        return salary;
     }; 
     let getName = function(){
-        return this.name;
+        return name;
     };
     
     return {
         setAge: function(newAge){
-            this.age = newAge;
+            age = newAge;
         },
         setSalary: function(newSalary){
-            this.salary = newName;
+            salary = newName;
         },
         setName: function(newName){
-            this.name = newName;
+            name = newName;
         },
         increaseSalary: function(percentage){
-            this.salary = this.getSalary() + (this.getSalary() * percentage)/100;
+            salary = getSalary() + (getSalary() * percentage)/100;
         },
         incrementAge: function(age){
-            this.age = this.getAge() + age;
-        },
+            age = getAge() + age;
+        }
     }
 }());
 
@@ -223,35 +224,37 @@ var employee =(function(){
 var employee = (function () {
 
     let emp = {};
+
     let getAge = function () {
-        return this.age;
+        return age;
     };
     let getSalary = function () {
-        return this.salary;
+        return salary;
     };
     let getName = function () {
-        return this.name;
+        return name;
     };
 
     emp.setAge = function (newAge) {
-        this.age = newAge;
+        age = newAge;
     };
     emp.setSalary = function (newSalary) {
-        this.salary = newSalary;
+        salary = newSalary;
     };
     emp.setName = function (newName) {
-        this.name = newName;
+        name = newName;
     };
     emp.increaseSalary = function (percentage) {
-        this.salary = this.getSalary() + (this.getSalary() * percentage) / 100;
+        salary = getSalary() + (getSalary() * percentage) / 100;
     };
     emp.incrementAge = function (age) {
-        this.age = this.getAge() + age;
+        age = getAge() + age;
     }
 
     return emp;
 
 }());
+
 13. Write a few Javascript instructions to extend the Module of Question 10 to have a public address field and
 public methods setAddress(newAddress) and getAddress( ).
 
@@ -260,7 +263,7 @@ public methods setAddress(newAddress) and getAddress( ).
         var address;
         return {       
             getAddress : function(){
-                return this.address;
+                return address;
             },
             setAddress : function(address){
                 address = address;
@@ -287,15 +290,17 @@ public methods setAddress(newAddress) and getAddress( ).
     => Success: Hattori
     => When a promise is fulfilled or rejected, it will stay in this state indefinitely (settled). 
         So, rejecting a fulfilled promise or fulfilling a rejected promise, will have not effect
+
+
 16. What is the output of the following code?
     function job(state) {
         return new Promise(function(resolve, reject) {
-        if (state) {
-            resolve('success');
-        } else {
-            reject('error');
-        }
-    });
+            if (state) {
+                resolve('success');
+            } else {
+                reject('error');
+            }
+        });
     }
 
     let promise = job(true);
