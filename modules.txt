@@ -145,19 +145,19 @@ Public Method: increaseSalary(percentage) // uses private getSalary( )
 Public Method: incrementAge( ) // uses private getAge( )
 
 var employee =(function(){
-    
+    var age, salary, name;
     let getAge = function(){
-        return this.age;
+        return age;
     }; 
     let getSalary = function(){
-        return this.salary;
+        return salary;
     }; 
     let getName = function(){
-        return this.name;
+        return name;
     };
 
     let setAge = function(newAge){
-        this.age = newAge;
+        age = newAge;
     };
 
     let setSalary = function(newSalary){
@@ -169,11 +169,11 @@ var employee =(function(){
     };
 
     let increaseSalary = function(percentage){
-        this.salary = this.getSalary() + (this.getSalary() * percentage)/100;
+        setSalary(this.getSalary() + (this.getSalary() * percentage)/100);
     };
 
     let incrementAge = function(age){
-        this.age = this.getAge() + age;
+        setAge(this.getAge() + age);
     };
 
     return {

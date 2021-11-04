@@ -14,10 +14,7 @@ button {
 }
 
 #bid {
-    color: yellow;
-}
-#bid::after {
-   content: "ssdfjsdhs";
+    color: blue;
 }
 
 
