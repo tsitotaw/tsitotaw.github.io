@@ -35,6 +35,6 @@ Sample HTML:
         </script>
     </head>
     <body>
-        >Is jQuery FUN or what? </p>
+        <p>Is jQuery FUN or what? </p>
     </body>
 </html>
