@@ -8,7 +8,6 @@ $(document).ready(function(){
             data: {"word" :word},
             success: function(obj){
                 $('#deflist').html("");
-                //var obj=JSON.parse(data);
                 for(var i=0; i< obj.length; i++) {
                   $('#deflist').append("<li>wordtype: " + obj[i]["wordtype"] + "<br>definition： " + obj[i]["definition"] + "</li><hr>");
                 }
@@ -18,22 +17,5 @@ $(document).ready(function(){
             },
         });
     });
-    function showDefinition(data) {
-        
-        // var obj=JSON.parse(data);
-        // for(var i=0; i< obj.length; i++) {
-        //   $('#deflist').append("<li>wordtype: " + obj[i]["wordtype"] + "<br>definition： " + obj[i]["definition"] + "</li><hr>");
-        // }
-    }
-    function showError(data) {
-        alert("showError"+data);
-    }
-//    function printObject(o) {
-//        var out = '';
-//        for (var p in o) {
-//            out += p + ': ' + o[p] + '\n';
-//        }
-//        alert(out);
-//    }
 });
 
