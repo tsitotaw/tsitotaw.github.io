@@ -17,7 +17,9 @@ $(document).ready(function(){
      * @return : {undefined}
      */
     $boundary.mouseenter(function() {
-       lostMessage();
+        if ($boundary.hasClass("started")){
+            lostMessage();
+        }
     });
 
     /**
@@ -25,7 +27,9 @@ $(document).ready(function(){
      * @return : {undefined}
      */
     $maze.mouseleave(function () {
-        lostMessage();
+        if ($boundary.hasClass("started")){
+            lostMessage();
+        }
     });
 
     /**

@@ -18,10 +18,10 @@ const express = require('express');
 const cors = require('cors');
 const Entry = require('./Entry');
 
-const host = 'localhost';
 const port = 8001;
 
 const app = express();
+
 app.use(cors());
 
 
@@ -45,5 +45,5 @@ app.get('/entry/:word', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log('Server is listening on port 8000');
+    console.log(`Server is listening on port ${port}`);
 });
