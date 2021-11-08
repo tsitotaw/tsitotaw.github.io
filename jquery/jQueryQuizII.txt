@@ -1,0 +1,60 @@
+jQuery Quiz II
+
+1. Which, if any, of the following 3 code fragments are equivalent? Explain why they are different, if
+they are. Explain why they can have different parameters and be equivalent, if they are equivalent.
+    
+    //code fragment 1
+    $("li").each(function(idx, e) {
+        $(e).css(“color”, “yellow”); });
+
+    //code fragment 2
+    $("li").each(function() {
+        $(this).css(“color”, “yellow”); });
+    
+    //code fragment 3
+    $("li").each(function(idx) {
+        $(this).css(“color”, “yellow”); });
+
+
+    => In the case of the current implementation, all the three forms accomplish exactly
+        the same thing. $(e) and $(this) are one and the same.
+        if we had special scenario, like, making some changes based on the index of the list,
+        having the index as parameter and missing it would have make the difference.
+        
+
+
+2. Write a jQuery expression to find all divs on a page that include an unordered list in them, and make
+their text color be blue.
+        <div>no ul here </div>
+        <div>
+            This does contain a ul.
+            <ul>
+                <li>the first item</li>
+                <li>the second item</li>
+            </ul>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("div ul").css("color", "blue");
+            });
+        </script>
+    </body>
+3. Write jQuery code to append the following div element (and all of its contents) dynamically to the body
+element.
+
+HTML:
+ <!DOCTYPE html>
+ <html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS Bin</title>
+    </head>
+    <body>
+
+    </body>
+    <script>
+        $(document).ready(function(){
+            $("<div><h1>JQuery Core</h1></div>").appendTo(document.body);
+        });
+    </script>
+ </html>

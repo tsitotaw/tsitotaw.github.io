@@ -15,8 +15,8 @@ body {
 }
 .content ul {
     justify-content: flex-start;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
 }
 
 .content ul li{
@@ -70,4 +70,10 @@ nav ul li a:hover{
 .footer-left p {
     padding: 0px;
     line-height: 6px;
+}
+.page-index {
+    columns: 3;
+    column-gap: 2%;
+    padding-left: 2px;
+    padding-right: 2px;
 }
