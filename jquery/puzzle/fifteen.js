@@ -66,7 +66,9 @@ $(document).ready(function () {
     $('#puzzlearea div').each(function (index, value) {
         var x = ((index % 4) * 100);
         var y = (Math.floor(index / 4) * 100);
+        
         $(this).addClass('puzzlepiece');
+        
         $(this).css({
             "left": x + "px",
             "top": y + "px",

@@ -1,5 +1,6 @@
 let emptyRow = 300;
 let emptyCol = 300;
+let timer = 0;
 const PUZZLE_NUMBER = 4;
 const TILE_SIZE = 100;
 
@@ -71,12 +72,7 @@ $(document).ready(function(){
     $("#shufflebutton").click(function(){
         const timeout = 1000;
         const timeShuffle = 10;
-        let timer = setInterval(shuffle, timeShuffle);
-        
-        setTimeout(function (){
-            clearTimeout(timer);
-        }, timeout);
-        
+        timer = setInterval(shuffle, timeShuffle);
     });
     
     let shuffle = function (){
@@ -118,6 +114,7 @@ $(document).ready(function(){
         emptyCol = tTop;
         emptyRow = tLeft;
         
+        clearTimeout(timer);
     };
         
     
