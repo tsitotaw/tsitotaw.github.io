@@ -2,7 +2,7 @@
   "name": "onlinedictionary",
   "version": "1.0.0",
   "description": "my first nodejs project - it is an online dictionary app",
-  "main": "dict.js",
+  "main": "entry.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

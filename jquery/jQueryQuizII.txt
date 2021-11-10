@@ -35,7 +35,7 @@ their text color be blue.
         </div>
         <script>
             $(document).ready(function(){
-                $("div ul").css("color", "blue");
+                $("div").has("ul").css("color", "blue");
             });
         </script>
     </body>

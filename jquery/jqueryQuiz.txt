@@ -19,7 +19,7 @@ Sample HTML:
  <h1>xyz</h1>
 </body>
 
-    => $(div h1).css("background-color", "red")
+    => $('div h1').css("background-color", "red")
 
 
 3. Use a jQuery method to insert the text "YES!" at the end of the <p> element.
@@ -29,8 +29,7 @@ Sample HTML:
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script>
             $(function(){
-                let pContent = $('p').html();
-                $('p').html(pContent + " YES!");
+                $('p').append(" YES!");
             });            
         </script>
     </head>
