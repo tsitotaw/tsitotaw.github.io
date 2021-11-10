@@ -1,59 +1,44 @@
-var emptyPiece = {
+let emptyPiece = {
     x: 300,
     y: 300
 };
 
 $(document).ready(function () {
 
-    var gameStarted = false;
+    let gameStarted = false;
 
-    function moveLeft(piece) {
-        var x = piece.x;
+    function moveHorizontal(piece, isLeft){
+        let size = (isLeft) ? piece.x-100 : piece.x+100;
+
         $(piece).css({
-            "left": (x - 100) + "px"
+            "left": size + "px"
         });
         swapPlaces(piece);
     }
 
-    function moveRight(piece) {
-        var x = piece.x;
-        $(piece).css({
-            "left": (x + 100) + "px"
-        });
-        swapPlaces(piece);
-    }
+    function moveVertical(piece, isTop){
+        let size = (isTop) ? piece.y-100 : piece.y+100;
 
-    function moveUp(piece) {
-        var y = piece.y;
         $(piece).css({
-            "top": (y - 100) + "px"
-        });
-        swapPlaces(piece);
-    }
-
-    function moveDown(piece) {
-        var y = piece.y;
-        $(piece).css({
-            "top": (y + 100) + "px"
+            "top": size + "px"
         });
         swapPlaces(piece);
     }
 
     function swapPlaces(piece) {
-        var tempX = emptyPiece.x;
-        var tempY = emptyPiece.y;
+        let tempX = emptyPiece.x;
+        let tempY = emptyPiece.y;
         emptyPiece.x = piece.x;
         emptyPiece.y = piece.y;
         piece.x = tempX;
         piece.y = tempY;
     }
 
-    function gameWinChecker()
-    {
-        var win = true;
+    function gameWinChecker() {
+        let win = true;
         $('#puzzlearea div').each(function () {
-            var id = $(this).prop("id");
-            var squareID = "square_" + this.x + "_" + this.y;
+            let id = $(this).prop("id");
+            let squareID = "square_" + this.x + "_" + this.y;
             if (id != squareID) {
                 win = false;
             }
@@ -63,106 +48,104 @@ $(document).ready(function () {
             alert("Good Job, You WON!!!!!!");
     }
 
-    $('#puzzlearea div').each(function (index, value) {
-        var x = ((index % 4) * 100);
-        var y = (Math.floor(index / 4) * 100);
-        
-        $(this).addClass('puzzlepiece');
-        
-        $(this).css({
-            "left": x + "px",
-            "top": y + "px",
-            "backgroundImage": "url('background.jpg')",
-            "backgroundPosition": -x + 'px ' + (-y) + 'px'
+    let init = function () {
+        $('#puzzlearea div').each(function (index) {
+            let x = ((index % 4) * 100);
+            let y = (Math.floor(index / 4) * 100);
+
+            $(this).css({ "left": x + "px" });
+            $(this).css({ "top": y + "px" });
+            $(this).css({ "background-position": -x + 'px ' + (-y) + 'px' });
+
+            this.x = x;
+            this.y = y;
+            $(this).prop("id", "square_" + x + "_" + y);
+            $(this).on("click", function () {
+                movePiece(this);
+            });
         });
+        toggleMMoveablePieceClass();
+        $("#shufflebutton").on("click", shuffle);
+    }
 
-        this.x = x;
-        this.y = y;
-        $(this).prop("id", "square_" + x + "_" + y);
-        $(this).on("click", function () {
-            move(this);
-        });
-    });
+    init();
 
-
-    resetAllandChecks();
-
-
-    function resetAllandChecks() {
+    function toggleMMoveablePieceClass() {
 
         $('#puzzlearea div').each(function () {
-            $(this).removeClass("movablepiece");
-            resetHelper(this);
+
+            piece = this; 
+            let left = piece.x;
+            let top = piece.y;
+
+            $(piece).removeClass("movablepiece");
+
+            if (left === emptyPiece.x && ((top - emptyPiece.y) === 100 || (top - emptyPiece.y) === -100)) {
+                if ((top - emptyPiece.y) === 100 || (top - emptyPiece.y) === -100) {
+                    $(piece).addClass("movablepiece");
+                }
+            }     
+
+            else if (top === emptyPiece.y && ((left - emptyPiece.x) === 100 || (left - emptyPiece.x) === -100)) {
+                $(piece).addClass("movablepiece");
+            }
         });
 
         gameWinChecker();
+    }    
+
+    function movePiece(piece) {
+        /**
+         * we don't need to go all the way down, if this piece is not moveable
+         */
+        if(!$(piece).hasClass('movablepiece'))
+        {
+            return false;
+        }
+
+
+        let left = piece.x;
+        let top = piece.y;
+
+
+        /**
+         * we will compare the left and top position of our peice againist emptyPiece
+         * initially emptyPiece will have a default value of the last position (300,300)
+         * everytime we do a shuffle, it will hold a new value
+         * 
+         * if both the left values are the same, we only can move up or down
+         */
+        if (left === emptyPiece.x) {
+            if ((top - emptyPiece.y) === 100) {
+                moveVertical(piece, true);
+            } else if ((top - emptyPiece.y) === -100) {
+                moveVertical(piece, false);
+            }
+        }
+
+
+        /**
+         * if both the top values are the same, we only can move left or right
+         */
+        if (top === emptyPiece.y) {
+            if ((left - emptyPiece.x) === 100) {
+                moveHorizontal(piece, true);
+            } else if ((left - emptyPiece.x) === -100) {
+                moveHorizontal(piece, false);
+            }
+
+            
+        }
+        toggleMMoveablePieceClass();
     }
 
-
-    function resetHelper(piece) {
-        var squareX = piece.x;
-        var squareY = piece.y;
-
-
-        if (squareX === emptyPiece.x) {
-            if ((squareY - emptyPiece.y) === 100) {
-                $(piece).addClass("movablepiece");
-            } else if ((squareY - emptyPiece.y) === -100) {
-                $(piece).addClass("movablepiece");
-            } else {
-                $(piece).removeClass("movablepiece");
-            }
-        }
-
-
-        if (squareY === emptyPiece.y) {
-            if ((squareX - emptyPiece.x) === 100) {
-                $(piece).addClass("movablepiece");
-            } else if ((squareX - emptyPiece.x) === -100) {
-                $(piece).addClass("movablepiece");
-            } else {
-                $(piece).removeClass("movablepiece");
-            }
-        }
-    }
-
-    function move(piece) {
-        var squareX = piece.x;
-        var squareY = piece.y;
-
-
-        if (squareX === emptyPiece.x) {
-            if ((squareY - emptyPiece.y) === 100) {
-                moveUp(piece);
-            } else if ((squareY - emptyPiece.y) === -100) {
-                moveDown(piece);
-            }
-
-            resetAllandChecks();
-        }
-
-
-        if (squareY === emptyPiece.y) {
-            if ((squareX - emptyPiece.x) === 100) {
-                moveLeft(piece);
-            } else if ((squareX - emptyPiece.x) === -100) {
-                moveRight(piece);
-            }
-
-            resetAllandChecks();
-        }
-
-    }
-
-    $("#shufflebutton").on("click", shuffle);
-
-    function shuffle()
-    {
-        for (var i = 0; i < 200; i++) {
+   
+    function shuffle() {
+        for (let i = 0; i < 200; i++) {
             gameStarted = true;
-            var data = $('.movablepiece');
-            var item = data[Math.floor(Math.random() * data.length)];
-            move(item);
+            let data = $('.movablepiece');
+            let item = data[Math.floor(Math.random() * data.length)];
+            movePiece(item);
         }
     }
 });
