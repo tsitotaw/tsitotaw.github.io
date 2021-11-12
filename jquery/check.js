@@ -1,5 +1,39 @@
 
-$("<div><h1>JQuery Core</h1></div>").appendTo(document.body);
+
+$(document).ready(function(){
+    let slices1 = $('ul li').slice(1);
+    let slices2 = $('ul li').slice(1,2);
+    let slices3 = $('ul li').slice(0,2);
+    let slices4 = $('ul li').slice(5);
+    });
+
+
+
+
+// $('div ul').each(function (){
+//     $(this).css('color', 'red');
+// });
+
+
+// var ulList = function(){ 
+
+//     $("div").each(function () { 
+
+//         if($.contains(this, document.getElementById("check"))){ 
+
+//             $(this).css("color", "blue") 
+
+//         } 
+
+//     }); 
+
+//    }; 
+
+//    ulList();
+
+
+
+// $("<div><h1>JQuery Core</h1></div>").appendTo(document.body);
 
 
 
