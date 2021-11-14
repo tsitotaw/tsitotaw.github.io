@@ -1,0 +1,23 @@
+doctype html
+html(lang='en')
+    head
+        title=title
+        style 
+            include style.css 
+    body
+        div
+            h1 The Number Quiz
+            p index #{index}
+            p Your current score is #{score}
+            p Guess the next number in the sequence 
+            p #{question}
+           
+            
+            
+
+            form(action="/sumbit" method="post")
+                label Your Answer:
+                input(name="useranswer" type="text", size="3") 
+                input(type="submit" value="submit")
+                input(type="hidden" name="score" value=score)
+                input(type="hidden" name="index" value=index)
