@@ -1,0 +1,34 @@
+doctype html
+html(lang='en')
+    head
+        title MyFirst Pug Template
+        style(src="main.css")
+    
+    body
+        - const isReady=true
+        - let menus = ["home", "type", "list", "sample"]
+        
+        mixin list
+            each menu in menus 
+                    case menu
+                        when 'home'
+                            h1= menu
+                        default 
+                            li= menu
+            
+        if isReady
+            p. 
+                We are Ready 
+                again and again
+                of course
+            ol
+                +list
+        else
+            p please wait a minute
+        div.content
+            h1 Content Goes Here
+            
+            ul 
+                // comment goes here
+                +list 
+            

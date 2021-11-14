@@ -1,35 +1,41 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    </head>
-       
-    <body>
-        <div> no ul here </div> 
+<!doctype html>
+<html lang="en">
 
-<div> 
+<head>
+    <meta charset="utf-8">
+    <title>text demo</title>
+    <style>
+        
+    </style>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
 
-This does not contain a ul. 
+<body>
+    <ul class="level-1">
+        <li class="item-i">I</li>
+        <li class="item-ii">II
+            <ul class="level-2">
+                <li class="item-a">A</li>
+                <li class="item-b">B
+                    <ul class="level-3">
+                        <li class="item-1">1</li>
+                        <li class="item-2">2</li>
+                        <li class="item-3">3</li>
+                    </ul>
+                </li>
+                <li class="item-c">C</li>
+            </ul>
+        </li>
+        <li class="item-iii">III</li>
+    </ul>
 
-<ul> 
+    <script>       
+        $("ul > li[level-2]").each(function(ind, ele) {
+    		$(ele).css({
+                "background-color":"red"
+            });
+	});
+    </script>
+</body>
 
-<li>the first item </li> 
-
-<li>the second item</li> 
-<li>the third item </li> 
-
-<li>the fourth item</li> 
-
-<li>the fifth item </li> 
-
-<li>the sixth item</li> 
-
-
-</ul> 
-
-<input type="text" value="12">
-</div> 
-        <script src="check.js"></script>
-    </body>
 </html>

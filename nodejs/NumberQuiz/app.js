@@ -1,26 +1,16 @@
 const url = require('url');
 const constants = require('./Config/Constants');
-
-
 let express = require('express');
-
 let app = express();
 app.set('view engine','pug')
-
 app.use(express.urlencoded());
-
 app.get('/', function (req, res) {
     let i = isNaN(parseInt(req.query.index)) ? 0 : req.query.index;
-    let score = isNaN(parseInt(req.query.score)) ? 0 : req.query.score;
-    
+    let score = isNaN(parseInt(req.query.score)) ? 0 : req.query.score;    
     if(i<5)
-        res.render('quiz',{
-            score:score,
-            index:i,
-            question:constants.QUESTIONS[i]
-        }); 
+        res.render('quiz',{ score:score, index:i,question:constants.QUESTIONS[i]}); 
     else
-        res.render('answer',{points:parseInt(score)})
+        res.render('result',{points:parseInt(score)})
 });
 
 app.post("/sumbit",(req,res)=>{
@@ -37,10 +27,7 @@ app.post("/sumbit",(req,res)=>{
     index ++;
     res.redirect(url.format({
         pathname:"/",
-        query: {
-           "index": index,
-           "score": score++
-         }
+        query: { "index": index, "score": score++ }
       }));
 });
 
