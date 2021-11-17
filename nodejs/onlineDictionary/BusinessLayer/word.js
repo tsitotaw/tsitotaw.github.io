@@ -1,4 +1,4 @@
-const sql = require("./db");
+const sql = require("../DataAccessLayer/db");
 
 const Entry = function(entry){
     this.word = entry.word;

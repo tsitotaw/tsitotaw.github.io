@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>      
+        <meta charset="UTF-8">
+        
+        <link rel="stylesheet" type="text/css" href="dict.css">
+        <title>Online English Dictionary</title>
+    </head>
+    <body>
+        <div class="header">
+            <img id="logo" src="dic.jpg" alt="dictionary logo" >
+        </div>
+        <div id="wordinput">
+            <label for="txtword">Term:</label>
+            <input type="text" name="txtword" id="txtword" placeholder="word" />
+            <button id="btnLookup">Lookup</button>
+        </div>
+        
+        <ol id="defnitions"></ol>
+
+        <script src="./../jquery.js" type="text/javascript"></script>
+        <script src="./../Controller/dict.js" type="text/javascript"></script>
+    </body>
+</html>

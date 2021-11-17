@@ -5,36 +5,39 @@
     <meta charset="utf-8">
     <title>text demo</title>
     <style>
-        
+
     </style>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 </head>
 
 <body>
-    <ul class="level-1">
-        <li class="item-i">I</li>
-        <li class="item-ii">II
-            <ul class="level-2">
-                <li class="item-a">A</li>
-                <li class="item-b">B
-                    <ul class="level-3">
-                        <li class="item-1">1</li>
-                        <li class="item-2">2</li>
-                        <li class="item-3">3</li>
-                    </ul>
-                </li>
-                <li class="item-c">C</li>
-            </ul>
-        </li>
-        <li class="item-iii">III</li>
-    </ul>
+    <h1>abc</h1><br><div>
+        <h1>div-1
+            <div>Hey</div>
+        </h1>
+        <h1>div-2</h1>
+        </div>
+        <h1>xyz</h1>
 
-    <script>       
-        $("ul > li[level-2]").each(function(ind, ele) {
-    		$(ele).css({
-                "background-color":"red"
-            });
-	});
+    <script>
+        $('div  h1').css("background-color", "red")
+        // $('ul:nth-child(0)').css('background-color' = 'red'); 
+        // $('li').filter('.parent').eq(0).remove(); 
+        // $('li').filter('.parent').eq(0).after("Homamama"); 
+        // $('li').filter('.parent').eq(0).appendTo("span.ssp"); // remove from its original place and append it here
+        // $('li').filter('.parent').eq(0).css({ "background-color": "red" });
+        // $('li').filter('.parent').css({ "background-color": "red" });
+        // $('li').slice(4,5).css({ "background-color": "red" });
+        // $('li span.ssp').css({ "background-color": "red" });
+        // $('li').has('span.ssp').css({ "background-color": "red" });
+        // $('p').closest('div').css({ "background-color": "red" });
+        // $('div').find('p').css({"background-color": "red"});
+        // $('ul:last').css({"color": "red"});
+        // $('ul:last li:last').css({"background-color": "red"});
+        // $('ul:first li').eq(1).css({"background-color": "red"});
+        // $('ul span.ssp').find('span.ssp').css({"background-color": "red"});
+        // $('ul span.ssp').css({"background-color": "red"});
+
     </script>
 </body>
 

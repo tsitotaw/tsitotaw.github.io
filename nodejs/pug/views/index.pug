@@ -1,18 +1,24 @@
 doctype html
 html(lang='en')
     head
-        title MyFirst Pug Template
+        title #{title}
         style(src="main.css")
+        style(type='text/css'). 
+            table { 
+                border: 1px solid red;
+            }
     
     body
         - const isReady=true
         - let menus = ["home", "type", "list", "sample"]
         
         mixin list
-            each menu in menus 
+            //- each menu in menus 
+            for menu in menus 
                     case menu
                         when 'home'
-                            h1= menu
+                            a(href="/") home
+
                         default 
                             li= menu
             
@@ -25,10 +31,22 @@ html(lang='en')
                 +list
         else
             p please wait a minute
+
+            
         div.content
             h1 Content Goes Here
             
             ul 
                 // comment goes here
                 +list 
+
+        table 
+            tr 
+                td First column
+                td second column
+                td third column
+            tr 
+                td First column 2.1
+                td second column 2.1
+                td third column 2.1
             
