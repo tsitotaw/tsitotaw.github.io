@@ -11,17 +11,35 @@
 </head>
 
 <body>
-    <h1>abc</h1><br><div>
-        <h1>div-1
-            <div>Hey</div>
-        </h1>
-        <h1>div-2</h1>
-        </div>
-        <h1>xyz</h1>
-
+    
+    <div>
+        <p>
+            Events are <em>crazy</em>
+        </p>
+    </div>
     <script>
-        $('div  h1').css("background-color", "red")
-        // $('ul:nth-child(0)').css('background-color' = 'red'); 
+        (function() {
+            function DeleteItem() {
+                $(this).parent().remove();
+                
+            }
+
+            $(document).ready(function() {
+                $("button").click(DeleteItem);
+                $("<p>", {
+                    id: "hello",
+                    class: "para",
+                    text: "here another"
+                }).appendTo(document.body);//.text("asdasda");
+            });
+        })();
+        // $("<div><h1>JQuery Core</h1></div>").appendTo(document.body);
+        // $("body").append("<div><h1>JQuery Core</h1></div>");
+        // $('div').find('h1').css("background-color", "red");
+        // $('div > h1').css("background-color", "red");
+        // $('div > h1').css("background-color", "red");
+
+        // $('ul:nth-child(0)').css('background-color' = 'red');
         // $('li').filter('.parent').eq(0).remove(); 
         // $('li').filter('.parent').eq(0).after("Homamama"); 
         // $('li').filter('.parent').eq(0).appendTo("span.ssp"); // remove from its original place and append it here
